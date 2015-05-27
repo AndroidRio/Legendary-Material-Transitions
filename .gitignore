@@ -1,3 +1,6 @@
+# Created by https://www.gitignore.io
+
+### Android ###
 # Built application files
 *.apk
 *.ap_
@@ -25,3 +28,11 @@ proguard/
 
 # Log Files
 *.log
+
+# IDEA/Android Studio project files, because
+# the project can be imported from settings.gradle
+.idea
+*.iml
+
+# Capture files
+captures/
