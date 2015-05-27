@@ -1,6 +1,6 @@
 # Legendary-Material-Transitions
 
-Licence:
+License
 =================
 ```
 Copyright 2015 AndroidRio
