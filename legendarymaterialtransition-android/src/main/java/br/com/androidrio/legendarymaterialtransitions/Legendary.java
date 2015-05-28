@@ -3,6 +3,11 @@ package br.com.androidrio.legendarymaterialtransitions;
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.ImageView;
+
+import br.com.androidrio.legendarymaterialtransitions.builders.FromBuilder;
+import br.com.androidrio.legendarymaterialtransitions.builders.ImageLoadingBuilder;
+import br.com.androidrio.legendarymaterialtransitions.builders.ToBuilder;
 
 /**
  * Created by leonardo.santos on 27/05/2015.
@@ -14,6 +19,10 @@ public class Legendary {
         mActivity = activity;
     }
 
+    public static Legendary getInstance(android.app.Fragment fragment){
+        return getInstance(fragment.getActivity());
+    }
+
     public static Legendary getInstance(Fragment fragment){
        return getInstance(fragment.getActivity());
     }
@@ -22,17 +31,20 @@ public class Legendary {
         return new Legendary(activity);
     }
 
-    public LegendaryFromBuilder from(View fromView){
-        LegendaryFromBuilder legendaryFromBuilder = new LegendaryFromBuilder(mActivity, fromView);
-        return legendaryFromBuilder;
+    public FromBuilder from(View fromView){
+        FromBuilder fromBuilder = new FromBuilder(mActivity, fromView);
+        return fromBuilder;
     }
 
-    public LegendaryToBuilder to(View toView){
-        LegendaryToBuilder legendaryToBuilder = new LegendaryToBuilder(mActivity, toView);
-        return legendaryToBuilder;
+    public ToBuilder to(View toView){
+        ToBuilder toBuilder = new ToBuilder(mActivity, toView);
+        return toBuilder;
     }
 
-
+    public ImageLoadingBuilder load(ImageView imageView){
+        ImageLoadingBuilder imageLoadingBuilder = new ImageLoadingBuilder(mActivity, imageView);
+        return imageLoadingBuilder;
+    }
 
 
 

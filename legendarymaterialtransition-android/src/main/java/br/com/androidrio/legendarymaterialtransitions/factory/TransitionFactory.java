@@ -1,8 +1,15 @@
-package br.com.androidrio.legendarymaterialtransitions;
+package br.com.androidrio.legendarymaterialtransitions.factory;
 
 import android.animation.AnimatorListenerAdapter;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+
+import br.com.androidrio.legendarymaterialtransitions.transition.HeroTransition;
+import br.com.androidrio.legendarymaterialtransitions.transition.ImageLoadingTransition;
 
 /**
  * Created by leonardo.santos on 27/05/2015.
@@ -28,23 +35,29 @@ public class TransitionFactory {
     }
 
     public static HeroTransition createHeroTransition(Bundle bundle, View toView, AnimatorListenerAdapter listener){
-        int[] screenLocation = new int[2];
-        toView.getLocationOnScreen(screenLocation);
 
         int drawingStartLocationTop = bundle.getInt(ARG_DRAWING_START_LOCATION_TOP, 0);
         int drawingStartLocationLeft = bundle.getInt(ARG_DRAWING_START_LOCATION_LEFT, 0);
-        int mLeftDelta = drawingStartLocationLeft - screenLocation[0];
-        int mTopDelta = drawingStartLocationTop - screenLocation[1];
+        int mLeftDelta = drawingStartLocationLeft - toView.getLeft();
+        int mTopDelta = drawingStartLocationTop - toView.getTop();
         int imageWidth = bundle.getInt(ARG_IMAGE_WIDTH, 0);
         int imageHeight = bundle.getInt(ARG_IMAGE_HEIGHT, 0);
 
         float mWidthScale = (float) imageWidth / toView.getWidth();
         float mHeightScale = (float) imageHeight / toView.getHeight();
 
-        HeroTransition heroTransition = new HeroTransition(toView, drawingStartLocationTop, drawingStartLocationLeft, imageWidth, imageHeight, mLeftDelta, mTopDelta, mWidthScale, mHeightScale);
+        HeroTransition heroTransition = new HeroTransition(toView, mLeftDelta, mTopDelta, mWidthScale, mHeightScale);
         heroTransition.withListener(listener);
 
         return heroTransition;
+    }
+
+    public static ImageLoadingTransition createImageLoadingTransition(Context context, ImageView imageView, Bitmap bitmap){
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(context.getResources(), bitmap);
+        imageView.setImageDrawable(bitmapDrawable);
+
+        ImageLoadingTransition imageLoadingTransition = new ImageLoadingTransition(bitmapDrawable);
+        return imageLoadingTransition;
     }
 
 

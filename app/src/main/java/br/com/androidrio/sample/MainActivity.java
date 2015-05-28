@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import br.com.androidrio.legendarymaterialtransitions.Legendary;
 
@@ -22,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SubActivity.class);
                 Legendary.getInstance(MainActivity.this).from(v).with(intent);
+            }
+        });
+
+        ImageView loadImage = (ImageView) findViewById(R.id.loadImage);
+        loadImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Legendary.getInstance(MainActivity.this).load((ImageView) v).withImage(R.drawable.poster_18bhhr7suc).setDuration(2000).start();
             }
         });
 

@@ -1,17 +1,19 @@
-package br.com.androidrio.legendarymaterialtransitions;
+package br.com.androidrio.legendarymaterialtransitions.builders;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
+import br.com.androidrio.legendarymaterialtransitions.factory.TransitionFactory;
+
 /**
  * Created by leonardo.santos on 27/05/2015.
  */
-public class LegendaryFromBuilder {
+public class FromBuilder {
     private Activity mActivity;
     private View mFromView;
 
-    public LegendaryFromBuilder(Activity activity, View fromView){
+    public FromBuilder(Activity activity, View fromView){
         mActivity = activity;
         mFromView = fromView;
     }

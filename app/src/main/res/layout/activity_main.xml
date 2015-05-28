@@ -28,4 +28,10 @@
         android:background="@android:color/darker_gray"
         />
 
+    <ImageView
+        android:id="@+id/loadImage"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/poster_18bhhr7suc"/>
+
 </LinearLayout>

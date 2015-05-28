@@ -3,16 +3,15 @@ package br.com.androidrio.sample;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
+import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.OvershootInterpolator;
 
-import br.com.androidrio.legendarymaterialtransitions.HeroTransition;
 import br.com.androidrio.legendarymaterialtransitions.Legendary;
+import br.com.androidrio.legendarymaterialtransitions.transition.HeroTransition;
 
 public class SubActivity extends AppCompatActivity {
 
@@ -29,9 +28,22 @@ public class SubActivity extends AppCompatActivity {
             @Override
             public boolean onPreDraw() {
                 contentRoot.getViewTreeObserver().removeOnPreDrawListener(this);
-                mHeroTransition = Legendary.getInstance(SubActivity.this).to(square).withData(getIntent()).withInterpolator(new OvershootInterpolator());
+                mHeroTransition = Legendary.getInstance(SubActivity.this).to(square).withData(getIntent()).setDuration(1000).withInterpolator(new FastOutLinearInInterpolator());
                 mHeroTransition.start();
                 return true;
+            }
+        });
+
+        square.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mHeroTransition.reset(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        finish();
+                        overridePendingTransition(0,0);
+                    }
+                });
             }
         });
 
