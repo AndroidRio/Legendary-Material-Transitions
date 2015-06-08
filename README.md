@@ -1,4 +1,4 @@
-# Legendary-Material-Transitions
+# Material-Transition-Patterns
 
 License
 =================
