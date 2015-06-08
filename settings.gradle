@@ -1,1 +1,1 @@
-include ':app', ':legendarymaterialtransition-android'
+include ':app', ':library'

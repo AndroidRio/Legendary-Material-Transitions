@@ -1,19 +1,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/contentRoot"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@android:color/transparent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="br.com.androidrio.sample.MainActivity">
 
-    <View
-        android:id="@+id/square"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"
-        android:background="@android:color/holo_red_dark"
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:src="@drawable/beach"
         />
 
 </RelativeLayout>

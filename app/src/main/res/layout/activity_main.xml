@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
@@ -7,31 +7,21 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="br.com.androidrio.sample.MainActivity">
 
-    <View
-        android:id="@+id/square"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@android:color/holo_red_dark"
-        />
-
-    <View
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/black"
-        />
-
-    <View
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/darker_gray"
-        />
 
     <ImageView
-        android:id="@+id/loadImage"
+        android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:src="@drawable/poster_18bhhr7suc"/>
+        android:layout_centerInParent="true"
+        android:src="@drawable/beach"/>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_load"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Load Image"
+        style="@style/Widget.AppCompat.Button"
+        />
+
+</RelativeLayout>
